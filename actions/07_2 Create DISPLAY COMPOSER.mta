@@ -1,0 +1,92 @@
+﻿[#0]
+T=2
+F=COMPOSER
+1=, Jr.
+2=commaJr.
+3=0|0
+
+[#1]
+T=2
+F=DISPLAY COMPOSER
+1=, Jr.
+2=commaJr.
+3=0|0
+
+[#2]
+T=4
+F=COMPOSER
+1=^[T|t]raditional$
+2=[traditional]
+3=1
+
+[#3]
+T=8
+F=COMPOSER
+1=; 
+
+[#4]
+T=5
+1=$if2(%display composer%,%composer%)
+F=DISPLAY COMPOSER
+
+[#5]
+T=4
+F=DISPLAY COMPOSER
+1=;|/
+2=, 
+3=1
+
+[#6]
+T=4
+F=DISPLAY COMPOSER
+1=,(?\u003d[^,]*$)
+2= and
+3=1
+
+[#7]
+T=4
+F=DISPLAY COMPOSER
+1=[^\\w]and and
+2=and
+3=0
+
+[#8]
+T=2
+F=DISPLAY COMPOSER
+1= and [traditional]|[traditional] and 
+2=
+3=0|0
+
+[#9]
+T=2
+F=COMPOSER
+1=and 
+2=
+3=0|1
+
+[#10]
+T=4
+F=COMPOSER
+1=;|\\,
+2=/
+3=1
+
+[#11]
+T=16
+F=COMPOSER
+1=/
+
+[#12]
+T=2
+F=COMPOSER
+1=commaJr.
+2=, Jr.
+3=0|0
+
+[#13]
+T=2
+F=DISPLAY COMPOSER
+1=commaJr.
+2=, Jr.
+3=0|0
+

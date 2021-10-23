@@ -1,0 +1,15 @@
+﻿[#0]
+T=5
+1=$if2(%setsubtitle%,$if($eql($left(%discnumber%,2),01),Side A,$if($eql($left(%discnumber%,2),02),Side B,$if($eql($left(%discnumber%,2),03),Side C,Side D))))
+F=SETSUBTITLE
+
+[#1]
+T=5
+1=$if($eql($len(%track%),3),%track%,$right(%setsubtitle%,1)$left(%track%,2))
+F=TRACK
+
+[#2]
+T=5
+1=$if($eql($left(%_filename%,2),00),$replace(%_filename%,00,%track%),$regexp(%_filename%,^\\d+,%track%))
+F=_FILENAME
+

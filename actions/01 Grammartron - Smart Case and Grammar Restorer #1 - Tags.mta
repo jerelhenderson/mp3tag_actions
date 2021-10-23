@@ -1,0 +1,255 @@
+﻿[#0]
+T=4
+! Trim Trailing, Preceding & Extra Spaces [1]=
+F=_TAG
+1=(\\s+$|^\\s+)
+2=
+3=0
+
+[#1]
+T=4
+! Trim Trailing, Preceding & Extra Spaces [2]=
+F=_TAG
+1=\\s+
+2= 
+3=0
+
+[#2]
+T=4
+! Enforce Correct Word Spacing [1]=
+F=_TAG
+1=([^\\s\\.:;\\)\\]/])([&\\({\\[\\+])
+2=$1 $2
+3=0
+
+[#3]
+T=4
+! Enforce Correct Word Spacing [2]=
+F=_TAG
+1=(&|\\)|\\}|\\]|;|(?<!\\d),|,(?!\\d{3})|\\+)([^\\s\\.:;\\(\\[/])
+2=$1 $2
+3=0
+
+[#4]
+T=4
+! Enforce Correct Word Spacing [3]=
+F=_TAG
+1=\\b([a-z])\\s(&)\\s([a-z])\\b
+2=$1$2$3
+3=0
+
+[#5]
+T=4
+! Enforce Correct Word Spacing [4]=
+F=_TAG
+1=([\\(\\[])\\s
+2=$1
+3=0
+
+[#6]
+T=4
+! Enforce Correct Word Spacing [5]=
+F=_TAG
+1=\\s(\\]|\\)|\\?|:|;|,|\\.(?!\\.\\.))
+2=$1
+3=0
+
+[#7]
+T=4
+! Enforce Correct Word Spacing [6]=
+F=_TAG
+1=(".*?")([^\\s\\]\\)/\\}!\\-\u003d,.;:])(?!$)
+2=$1 $2
+3=0
+
+[#8]
+T=4
+! Enforce Correct Word Spacing [7]=
+F=_TAG
+1=([^\\s\\[\\(/\\{])(".*?")
+2=$1 $2
+3=0
+
+[#9]
+T=4
+! Enforce Correct Word Spacing [8]=
+F=_TAG
+1=(\\.(?<!\\.\\.))(?![\\s\\.':;\\)\\]"])(?![\\l\\u](\\.|$| ))(?!$)(?!\\d)(?!(co|com|uk|net|org|gov|edu|mil|html?|php))
+2=$0 
+3=0
+
+[#10]
+T=4
+! Enforce Correct Word Spacing [9]=
+F=_TAG
+1=ww.\\s
+2=ww.
+3=0
+
+[#11]
+T=4
+! Enforce Correct Word Spacing [10]=
+F=_TAG
+1="\\s?(.*?)\\s?"
+2="$1"
+3=0
+
+[#12]
+T=4
+! Add Apostrophe to "Are" Contractions=
+F=_TAG
+1=\\b(how|they|what|when|why|you)re\\b
+2=$1're
+3=0
+
+[#13]
+T=4
+! Add Apostrophe to "Have" Contractions=
+F=_TAG
+1=\\b(could|how|i|might|must|should|we|what|where|would|you)ve\\b
+2=$1've
+3=0
+
+[#14]
+T=4
+! Add Apostrophe to "Is" Contractions=
+F=_TAG
+1=\\b(he|here|how|she|that|there|two|what|when|where|who|why)s\\b
+2=$1's
+3=0
+
+[#15]
+T=4
+! Add Apostrophe to "Not" Contractions=
+F=_TAG
+1=\\b(ain|aren|can|couldn|didn|doesn|don|hadn|hasn|haven|isn|mightn|mustn|shouldn|wasn|weren|won|wouldn)t\\b
+2=$1't
+3=0
+
+[#16]
+T=4
+! Add Apostrophe to "Will" Contractions=
+F=_TAG
+1=\\b(how|it|that|there|they|what|when|where|who|you)ll\\b
+2=$1'll
+3=0
+
+[#17]
+T=4
+! Add Apostrophe to "Will" Contractions=
+F=_TAG
+1=\\b(I)m\\b
+2=$1'm
+3=0
+
+[#18]
+T=4
+! Title Case Conversion [1] (Convert Words to Mixed-Case, Ignoring Upper-Case Letters)=
+F=_TAG
+1=([-({\\[\\]}) _",./+&@:;*])(\\l)
+2=$1$upper($2)
+3=1
+
+[#19]
+T=4
+! Title Case Conversion [2] (Capitalise First Word)=
+F=_TAG
+1=^(\\l)
+2=$upper($1)
+3=1
+
+[#20]
+T=4
+! Title Case Conversion [3] (Articles, Conjunctions & Short Prepositions to Lower-Case, Except Before or After Punctuation)=
+F=_TAG
+1=(?<!&|:|;|-|/|!|(?<![A-Z]\\.[A-Z])\\.|\\?|\\+)(\\s+\\b(A|An|And|As|At|But|By|De|Et|For|From|In|Into|Le|Nor|Of|Off|On|Onto|Or|Than|The|To|Upon|Von|With)(?\u003d\\s)(?!\\s[\\-\\(\\)\\[\\]{}]))
+2=$lower($1)
+3=1
+
+[#21]
+T=4
+! Title Case Conversion [4]=
+F=_TAG
+1=(^|\\s|\\(|\\[|/)'(.{1})
+2=$1'$upper($2)
+3=0
+
+[#22]
+T=4
+! Title Case Conversion [5] (Capitalise "to" Before Common Verbs)=
+F=_TAG
+1=(to\\s+)\\b(Ask|Be|Begin|Believe|Bring|Buy|Call|Care|Change|Cheat|Come|Cry|Dance|Die|Do|Dream|Fall|Feel|Find|Forget|Get|Give|Go|Hate|Have|Hear|Hide|Hold|Keep|Know|Laugh|Learn|Leave|Let|Lie|Listen|Live|Look|Lose|Love|Make|Mean|Miss|Move|Marry|Need|Play|Pretend|Promise|Put|Remember|Return|Ride|Run|Say|See|Sell|Send|Set|Show|Sing|Speak|Stand|Stay|Steal|Stop|Take|Talk|Tell|Thank|Think|Touch|Travel|Try|Use|Wait|Walk|Want|Win|Wish|Work|Write)\\b
+2=$caps($1)$2
+3=1
+
+[#23]
+T=4
+! Forced Upper-Case for Named Abbreviations and Acronyms=
+F=_TAG
+1=\\b(ac|aka|ap|asap|atm|bbc|bc|bce|blt|btw|cbs|cc|cd|cia|dc|dj|doa|emi|ep|faq|fbi|fm|fr|gb|gi|imho|ira|irs|jc|kkk|lp|mc|mgm|nasa|nbc|npr|ny|nyc|ok|ost|pm|ps|qed|rca|rpm|sos|tba|tlc|tv|ufo|uk|usa|ussr|va|ymca)\\b
+2=$upper($1)
+3=0
+
+[#24]
+T=4
+! Replay Gain Correction [1]=
+F=REPLAYGAIN_TRACK_GAIN
+1=(\\+|-)?\\s?(\\d*\\.\\d*)\\sDB
+2=$1$2 dB
+3=0
+
+[#25]
+T=4
+! Replay Gain Correction [2]=
+F=REPLAYGAIN_ALBUM_GAIN
+1=(\\+|-)?\\s?(\\d*\\.\\d*)\\sDB
+2=$1$2 dB
+3=0
+
+[#26]
+T=4
+! CamelCase Irish Names Beginning with O'=
+F=_TAG
+1=\\b(O'[a-z]|O\\x{2019}[a-z])
+2=$upper($1)
+3=1
+
+[#27]
+T=4
+! CamelCase Scottish Names Beginning with Mc=
+F=_TAG
+1=\\b(Mc)((?:[a-z]|-){3,})
+2=$1$caps2($2,-)
+3=1
+
+[#28]
+T=4
+! CamelCase Common Scottish Names Beginning with Mac=
+F=_TAG
+1=\\b(Mac)(Alister|Arthur|Askill|Bain|Coll|Donald|Dougall|Dowell|Duff|Ewen|Farlane|Gregor|Intyre|Kenzie|Kinnon|Laren|Lean|Leod|Millan|Nab|Neil|Pherson|Rae)\\b
+2=$1$caps2($2)
+3=0
+
+[#29]
+T=4
+! Roman Numerals to Upper-Case (Up to LXXIX, or 89)=
+F=_TAG
+1=\\b(?:L?X{0,3}|XL)(?:V?I{0,3}|I[VX])(?\u003d(\\.\\s|\\s|\\)|$))
+2=$upper($0)
+3=0
+
+[#30]
+T=4
+! Common Latinisms and Miscellany to Lowercase=
+F=_TAG
+1=(\\b(?:E\\.G|et\\sAl|Etc|I\\.E|Versus|Vs|Feat\\.\\s|Ft\\.\\s|(?<\u003d')N(?\u003d'))\\b)
+2=$lower($1)
+3=1
+
+[#31]
+T=4
+F=TITLE
+1=(\\w\\s)(flat|sharp)
+2=$1\\L$2
+3=0
+

@@ -1,0 +1,30 @@
+﻿[#0]
+T=7
+F=%artist%
+1=%artist%/%guest artist%
+
+[#1]
+T=7
+F=%title%
+1=%title% (feat. %guest artist%)
+
+[#2]
+T=7
+F=%title%
+1=%title% feat. %guest artist%
+
+[#3]
+T=7
+F=%title%
+1=%title% (featuring %guest artist%)
+
+[#4]
+T=7
+F=%title%
+1=%title% (with %guest artist%)
+
+[#5]
+T=16
+F=GUEST ARTIST
+1=/
+

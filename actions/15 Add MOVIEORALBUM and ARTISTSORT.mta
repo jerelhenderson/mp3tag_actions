@@ -1,0 +1,24 @@
+﻿[#0]
+T=5
+1=%album%
+F=ARTISTSORT
+
+[#1]
+T=5
+1=%album%
+F=MOVIEORALBUM
+
+[#2]
+T=4
+F=ARTISTSORT
+1=\\s(?:Original Sound.+)|\\:\\s(?:(?:Music [F|f]rom.+)|The Original.+|\u30aa\u30ea\u30b8\u30ca\u30eb.+)
+2=
+3=0
+
+[#3]
+T=4
+F=MOVIEORALBUM
+1=\\s(?:Original Sound.+)|\\:\\s(?:(?:Music [F|f]rom.+)|The Original.+|\u30aa\u30ea\u30b8\u30ca\u30eb.+)
+2=
+3=0
+

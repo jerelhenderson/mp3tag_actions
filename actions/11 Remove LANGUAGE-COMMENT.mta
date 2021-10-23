@@ -1,0 +1,12 @@
+﻿[#0]
+T=5
+1=$if($eql($strstr($meta_sep(genre,\\\\),Classical),0),,%language%)
+F=LANGUAGE
+
+[#1]
+T=4
+F=COMMENT
+1=(?:ExactAudioCopy|EAC|Ripped).+
+2=
+3=0
+

@@ -1,0 +1,62 @@
+﻿[#0]
+T=5
+1=$meta_sep(guest artist,\\\\)\\\\$if($geql($strstr(%involvedpeople%,guest vocals),1),$regexp(%involvedpeople%,'['\\s\\S']'*?(guest vocals:.+?;)(?!guest vocals)'['\\s\\S']'*?$,$1),)
+F=GUEST ARTIST
+
+[#1]
+T=4
+F=GUEST ARTIST
+1=guest vocals:
+2=
+3=0
+
+[#2]
+T=2
+F=GUEST ARTIST
+1=;
+2=/
+3=0|0
+
+[#3]
+T=5
+1=$regexp($meta_sep(guest artist,\\\\),(.+?)/\\1,$1)
+F=GUEST ARTIST
+
+[#4]
+T=2
+F=GUEST ARTIST
+1=;
+2=
+3=0|0
+
+[#5]
+T=5
+1=$regexp(%involvedpeople%,(guest vocals|guest lead vocals):.+?;,)
+F=INVOLVEDPEOPLE
+
+[#6]
+T=16
+F=GUEST ARTIST
+1=/
+
+[#7]
+T=4
+F=GUEST ARTIST
+1=/$
+2=
+3=0
+
+[#8]
+T=4
+F=GUEST ARTIST
+1=:$
+2=
+3=0
+
+[#9]
+T=4
+F=GUEST ARTIST
+1=^/
+2=
+3=0
+

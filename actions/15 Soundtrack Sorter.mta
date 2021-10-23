@@ -1,0 +1,10 @@
+﻿[#0]
+T=5
+1=$if(%tvepisode%,$repeat(\u200b,$sub($add($left(%tvepisode%,1),1)00,%tvepisode%)),$if($eql($left(%origyear%,2),19),$repeat(\u200b,100)$repeat(\u200b,$mul($add(-10,$mid(%origyear%,3)),-10))$repeat(\u200b,$mul($add(-10,$right(%origyear%,1)),-1)),$repeat(\u200b,$if($eql($mid(%origyear%,3),0),$add(50,10,$mul($add(-10,$right(%origyear%,1)),-1)),$sub($add(50,$left(%origyear%,2)),$right(%origyear%,2))))))$if($geql($strstr(%_folderpath%,\\Original Soundtrack),1),$repeat(\u200b,25),$if($geql($strstr(%_folderpath%,\\Singles),1),$repeat(\u200b,10),$if($or($geql($strstr(%_folderpath%,\\Compilation),1),$geql($strstr(%_folderpath%,\\Live),1)),$repeat(\u200b,30),$if($and($geql($strstr(%_folderpath%,\\Soundtrack),1),$eql($strstr(%_folderpath%,J:\\Soundtrack),0)),$repeat(\u200b,20),$if($or($geql($strstr(%_folderpath%,\\Drama),1),$geql($strstr(%_folderpath%,\\Image),1)),$repeat(\u200b,18),)))))%album%
+F=ALBUMSORT
+
+[#1]
+T=5
+1=$len($regexp(%albumsort%,'(\u200b+)[\\s\\S]*?$',$1))
+F=ZWSP
+

@@ -1,0 +1,10 @@
+﻿[#0]
+T=5
+1=$if($eql(%genre%,Classical),$if($eql($regexp(%title%,(?(?\u003d.+\\b((?:\\d+)|(?:(X|IX|IV|V?I)))\\b+)|),$1),%title%),,$regexp(%title%,.+\\b(\\d+|(X|IX|IV|V|I{1,3}))\\b.+,$1)),)
+F=MOVEMENT
+
+[#1]
+T=5
+1=$if($eql(%genre%,Classical),$if($eql($regexp(%title%,(?(?\u003d.+\\b((?:\\d+)|(?:(X|IX|IV|V?I)))\\b+)|),$1),%title%),,$regexp(%title%,.+\\b(\\d+|(X|IX|IV|V|I{1,3}))\\b.+,$1)),)
+F=NUM_ARAB
+

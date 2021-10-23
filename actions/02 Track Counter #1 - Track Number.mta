@@ -1,0 +1,5 @@
+﻿[#0]
+T=5
+1=$num($add(%_counter%,),2)
+F=TRACK
+

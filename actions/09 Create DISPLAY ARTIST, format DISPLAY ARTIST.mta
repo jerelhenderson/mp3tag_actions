@@ -1,0 +1,29 @@
+﻿[#0]
+T=8
+F=ARTIST
+1=; 
+
+[#1]
+T=5
+1=$if($or($eql(%genre%,Classical),$geql($strstr($meta_sep(style,\\\\),Soundtrack),1)),$if(%composer%,$if($eql(%composer%,%artist%),%composer%,%artist%),%artist%),%artist%)
+F=DISPLAY ARTIST
+
+[#2]
+T=2
+F=DISPLAY ARTIST
+1=;
+2=,
+3=0|0
+
+[#3]
+T=4
+F=DISPLAY ARTIST
+1=,(?\u003d[^,]*$)
+2= and
+3=0
+
+[#4]
+T=16
+F=ARTIST
+1=;
+

@@ -1,0 +1,12 @@
+﻿[#0]
+T=4
+F=TRACK
+1=(\\d\\d).+
+2=$1
+3=0
+
+[#1]
+T=5
+1=%track%/$ifgreater(%_total_files%,9,,0)%_total_files%
+F=TRACK
+

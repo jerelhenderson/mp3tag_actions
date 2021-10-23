@@ -1,0 +1,15 @@
+﻿[#0]
+T=5
+1=$if($geql($strstr($meta(style),Soundtrack),1),%album%,)
+F=ALBUMSORT
+
+[#1]
+T=5
+1=%artistsort%
+F=GROUPING
+
+[#2]
+T=5
+1=$if($geql($strstr($meta(genre),Classical),1),$if2(%conductor%,)\\\\%composer%,)
+F=ARTISTSORT
+

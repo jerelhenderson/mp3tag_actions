@@ -1,0 +1,29 @@
+﻿[#0]
+T=5
+F=ALBUMARTISTSORT
+1=%albumartist%
+
+[#1]
+T=2
+F=ALBUMARTISTSORT
+1= and 
+2=/
+3=0|0
+
+[#2]
+T=16
+F=ALBUMARTISTSORT
+1=,
+
+[#3]
+T=16
+F=ALBUMARTISTSORT
+1=/
+
+[#4]
+T=4
+F=ALBUMARTISTSORT
+1=([\\s\\S]*)\\s(.+)$
+2=$2, $1
+3=0
+

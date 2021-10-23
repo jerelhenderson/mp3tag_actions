@@ -1,0 +1,46 @@
+﻿[#0]
+T=4
+F=COMPOSER
+1=Unknown|Not Applicable|Public Domain
+2=
+3=0
+
+[#1]
+T=8
+F=ARTIST
+1=; 
+
+[#2]
+T=8
+F=COMPOSER
+1=; 
+
+[#3]
+T=5
+1=$if($or($eql(%genre%,Classical),$geql($strstr($meta_sep(style,\\\\),Soundtrack),1)),$if2(%composer%,%artist%),%composer%)
+F=COMPOSER
+
+[#4]
+T=5
+1=$if($eql(%genre%,Classical),$if2(%composersort%,$regexp(%composer%,'([\\s\\S]*)\\s(.+)$','$2, $1')),%composersort%)
+F=COMPOSERSORT
+
+[#5]
+T=5
+1=%composer%
+F=DISPLAY COMPOSER
+
+[#6]
+T=2
+F=DISPLAY COMPOSER
+1=, Jr.
+2=commaJr.
+3=0|0
+
+[#7]
+T=2
+F=DISPLAY COMPOSER
+1=;
+2=,
+3=0|0
+

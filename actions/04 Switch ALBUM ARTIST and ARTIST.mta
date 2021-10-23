@@ -1,0 +1,10 @@
+﻿[#0]
+T=5
+1=%albumartist% (%artist%)
+F=ALBUMARTIST
+
+[#1]
+T=7
+F=%albumartist%
+1=%artist% (%albumartist%)
+

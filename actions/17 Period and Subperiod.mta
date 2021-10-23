@@ -1,0 +1,32 @@
+﻿[#0]
+T=14
+F=LIFESPAN
+1=$if($or($neql(%genre%,Classical),%lifespan%,$eql(%composer%,'['Anonymous']')),,T:\\tools\\mp3tag\\composers_list.txt)
+
+[#1]
+T=5
+1=$if($geql($strstr(%lifespan%,$replace(%composer%,\u00c0,A,\u00c1,A,\u00c2,A,\u00c3,A,\u00c4,A,\u00c5,A,\u00e0,a,\u00e1,a,\u00e1,a,\u00e2,a,\u00e3,a,\u00e4,a,\u00e5,a,\u00c6,AE,\u00e6,ae,\u00c7,C,\u00e7,c,\u00c8,E,\u00c9,E,\u00ca,E,\u00cb,E,\u00e8,e,\u00e9,e,\u00ea,e,\u00eb,e,\u00cc,I,\u00cd,I,\u00ce,I,\u00cf,I,\u00ec,i,\u00ed,i,\u00ee,i,\u00ef,i,\u00d1,N,\u00f1,n,\u00d2,O,\u00d3,O,\u00d4,O,\u00d5,O,\u00d6,O,\u00d8,O,\u00f2,o,\u00f3,o,\u00f4,o,\u00f5,o,\u00f6,o,\u00f8,o,\u0152,OE,\u0153,oe,\u0159,r,\u0160,S,\u0161,s,\u00df,ss,\u00d0,Th,\u00de,Th,\u00f0,th,\u00fe,th,\u00d9,U,\u00da,U,\u00db,U,\u00dc,U,\u00f9,u,\u00fa,u,\u00fb,u,\u00fc,u,\u0178,y,\u00dd,Y,\u00fd,y,\u00ff,y,\u017d,Z,\u017e,z)),1),$regexp(%lifespan%,^'['\\s\\S']'*?(\\d+-\\d+)(?:\\s|\\s\\w+-)$replace(%composer%,\u00c0,A,\u00c1,A,\u00c2,A,\u00c3,A,\u00c4,A,\u00c5,A,\u00e0,a,\u00e1,a,\u00e1,a,\u00e2,a,\u00e3,a,\u00e4,a,\u00e5,a,\u00c6,AE,\u00e6,ae,\u00c7,C,\u00e7,c,\u00c8,E,\u00c9,E,\u00ca,E,\u00cb,E,\u00e8,e,\u00e9,e,\u00ea,e,\u00eb,e,\u00cc,I,\u00cd,I,\u00ce,I,\u00cf,I,\u00ec,i,\u00ed,i,\u00ee,i,\u00ef,i,\u00d1,N,\u00f1,n,\u00d2,O,\u00d3,O,\u00d4,O,\u00d5,O,\u00d6,O,\u00d8,O,\u00f2,o,\u00f3,o,\u00f4,o,\u00f5,o,\u00f6,o,\u00f8,o,\u0152,OE,\u0153,oe,\u0159,r,\u0160,S,\u0161,s,\u00df,ss,\u00d0,Th,\u00de,Th,\u00f0,th,\u00fe,th,\u00d9,U,\u00da,U,\u00db,U,\u00dc,U,\u00f9,u,\u00fa,u,\u00fb,u,\u00fc,u,\u0178,y,\u00dd,Y,\u00fd,y,\u00ff,y,\u017d,Z,\u017e,z)'['\\s\\S']'*$,$1),)
+F=LIFESPAN
+
+[#2]
+T=5
+1=$if2(%period%,$if($and($geql($left(%lifespan%,4),1880),$leql($left(%lifespan%,4),1999)),Twentieth Century,%period%)$if($and($geql($left(%lifespan%,4),1800),$leql($left(%lifespan%,4),1879)),Romantic,%period%)$if($and($geql($left(%lifespan%,4),1710),$leql($left(%lifespan%,4),1799)),Classical,%period%)$if($and($geql($left(%lifespan%,4),1550),$leql($left(%lifespan%,4),1709)),Baroque,%period%)$if($and($geql($left(%lifespan%,4),1420),$leql($left(%lifespan%,4),1549)),Renaissance,%period%))
+F=PERIOD
+
+[#3]
+T=5
+1=$if($or($and($geql($left(%lifespan%,4),1400),$leql($left(%lifespan%,4),1469)),$and($geql($left(%lifespan%,4),1550),$leql($left(%lifespan%,4),1599)),$and($geql($left(%lifespan%,4),1800),$leql($left(%lifespan%,4),1819))),Early,%subperiod%)$if($or($and($geql($left(%lifespan%,4),1470),$leql($left(%lifespan%,4),1529)),$and($geql($left(%lifespan%,4),1600),$leql($left(%lifespan%,4),1649)),$and($geql($left(%lifespan%,4),1730),$leql($left(%lifespan%,4),1749)),$and($geql($left(%lifespan%,4),1820),$leql($left(%lifespan%,4),1839))),Middle,%subperiod%)$if($and($geql($left(%lifespan%,4),1700),$leql($left(%lifespan%,4),1709)),Classical Transition,%subperiod%)$if($and($geql($left(%lifespan%,4),1710),$leql($left(%lifespan%,4),1729)),Galante era,%subperiod%)$if($or($and($geql($left(%lifespan%,4),1530),$leql($left(%lifespan%,4),1549)),$and($geql($left(%lifespan%,4),1650),$leql($left(%lifespan%,4),1699)),$and($geql($left(%lifespan%,4),1750),$leql($left(%lifespan%,4),1769)),$and($geql($left(%lifespan%,4),1840),$leql($left(%lifespan%,4),1859))),Late,%subperiod%)$if($and($geql($left(%lifespan%,4),1770),$leql($left(%lifespan%,4),1799)),Romantic Transition,%subperiod%)$if($and($geql($left(%lifespan%,4),1860),$leql($left(%lifespan%,4),1879)),Post,%subperiod%)
+F=SUBPERIOD
+
+[#4]
+T=5
+1=$if($and($eql(%genre%,Classical),$neql(%composer%,'['Anonymous']')),$replace(%title%, NO LIFESPAN,, NO PERIOD,, NO SUBPERIOD,, LIFESPAN ERROR,)$if(%lifespan%,, NO LIFESPAN)$if(%period%,, NO PERIOD)$if($or($eql(%period%,Twentieth Century),(%subperiod%)),, NO SUBPERIOD)$ifgreater($len(%lifespan%),9, LIFESPAN ERROR,),%title%)
+F=TITLE
+
+[#5]
+T=4
+F=TITLE
+1=\\s+$
+2=
+3=0
+

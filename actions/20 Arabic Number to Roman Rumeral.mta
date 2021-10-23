@@ -1,0 +1,65 @@
+﻿[#0]
+T=9
+F=NUM_ROMAN
+
+[#1]
+T=5
+F=NUM_ARAB
+1=$iflonger(%NUM_ARAB%,5,$right(%NUM_ARAB%,5),%NUM_ARAB%)
+
+[#2]
+T=5
+F=NUM_ROMAN
+1=$if($eql($len(%NUM_ARAB%),5),%NUM_ROMAN%$mid(   |T   |TT  |TTT |TY  |Y   |YT  |YTT |YTTT|TH  ,$mul($left(%NUM_ARAB%,1),5),4),%NUM_ROMAN%)
+
+[#3]
+T=5
+F=NUM_ARAB
+1=$iflonger(%NUM_ARAB%,4,$right(%NUM_ARAB%,4),%NUM_ARAB%)
+
+[#4]
+T=5
+F=NUM_ROMAN
+1=$if($eql($len(%NUM_ARAB%),4),%NUM_ROMAN%$mid(   |M   |MM  |MMM |MF  |F   |FM  |FMM |FMMM|MT  ,$mul($left(%NUM_ARAB%,1),5),4),%NUM_ROMAN%)
+
+[#5]
+T=5
+F=NUM_ARAB
+1=$iflonger(%NUM_ARAB%,3,$right(%NUM_ARAB%,3),%NUM_ARAB%)
+
+[#6]
+T=5
+F=NUM_ROMAN
+1=$if($eql($len(%NUM_ARAB%),3),%NUM_ROMAN%$mid(   |C   |CC  |CCC |CD  |D   |DC  |DCC |DCCC|CM  ,$mul($left(%NUM_ARAB%,1),5),4),%NUM_ROMAN%)
+
+[#7]
+T=5
+F=NUM_ARAB
+1=$iflonger(%NUM_ARAB%,2,$right(%NUM_ARAB%,2),%NUM_ARAB%)
+
+[#8]
+T=5
+F=NUM_ROMAN
+1=$if($eql($len(%NUM_ARAB%),2),%NUM_ROMAN%$mid(   |X   |XX  |XXX |XL  |L   |LX  |LXX |LXXX|XC  ,$mul($left(%NUM_ARAB%,1),5),4),%NUM_ROMAN%)
+
+[#9]
+T=5
+F=NUM_ARAB
+1=$iflonger(%NUM_ARAB%,1,$right(%NUM_ARAB%,1),%NUM_ARAB%)
+
+[#10]
+T=5
+F=NUM_ROMAN
+1=$if($eql($len(%NUM_ARAB%),1),%NUM_ROMAN%$mid(   |I   |II  |III |IV  |V   |VI  |VII |VIII|IX  ,$mul($left(%NUM_ARAB%,1),5),4),%NUM_ROMAN%)
+
+[#11]
+T=9
+F=NUM_ARAB
+
+[#12]
+T=4
+F=NUM_ROMAN
+1=[\\s||]
+2=
+3=0
+

@@ -1,0 +1,10 @@
+﻿[#0]
+T=5
+1=%origyear% (%originaldate%)
+F=ORIGYEAR
+
+[#1]
+T=7
+F=%origyear%
+1=%originaldate% (%origyear%)
+

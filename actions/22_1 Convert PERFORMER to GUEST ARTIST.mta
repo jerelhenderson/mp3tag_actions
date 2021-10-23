@@ -1,0 +1,49 @@
+﻿[#0]
+T=5
+1=$meta_sep(guest artist,\\\\)\\\\$if($eql($regexp(%involvedpeople%,'['\\s\\S']'*?;:(.+);,$1),%involvedpeople%),%involvedpeople%,$regexp(%involvedpeople%,'['\\s\\S']'*?;:(.+?);'['\\s\\S']'*?$,$1))
+F=GUEST ARTIST
+
+[#1]
+T=5
+1=$if($eql($regexp(%involvedpeople%,^(.+?):;'['\\s\\S']'*?$,$1)\\\\,$meta_sep(guest artist,\\\\)),$regexp(%involvedpeople%,^(.+?):;'['\\s\\S']'*?$,$1),$meta_sep(guest artist,\\\\))
+F=GUEST ARTIST
+
+[#2]
+T=5
+1=$regexp($meta_sep(guest artist,\\\\),%involvedpeople%,)
+F=GUEST ARTIST
+
+[#3]
+T=5
+1=$meta_sep(guest artist,\\\\)\\\\$if($geql($strstr($meta_sep(performer,\\\\),guest vocals),1),$regexp($meta_sep(performer,\\\\),'^[\\s\\S]*?(\\\\\\\\.+guest vocals)(?!guest vocals)[\\s\\S]*?$','$1)'),)
+F=GUEST ARTIST
+
+[#4]
+T=2
+F=GUEST ARTIST
+1= (guest vocals)
+2=
+3=0|0
+
+[#5]
+T=4
+F=PERFORMER
+1=^[\\s\\S]*?guest vocals[\\s\\S]*?$
+2=
+3=0
+
+[#6]
+T=5
+1=$regexp(%involvedpeople%,;:.+?;,;)
+F=INVOLVEDPEOPLE
+
+[#7]
+T=5
+1=$regexp(%involvedpeople%,$meta(guest artist,\\\\):;+,)
+F=INVOLVEDPEOPLE
+
+[#8]
+T=5
+1=$regexp(%involvedpeople%,$meta(artist,\\\\):;+,)
+F=INVOLVEDPEOPLE
+

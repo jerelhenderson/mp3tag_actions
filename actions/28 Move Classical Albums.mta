@@ -1,0 +1,22 @@
+﻿[#0]
+T=5
+1=$regexp(%_folderpath%,\\\\$,)
+F=PREVIOUSDIR
+
+[#1]
+T=5
+1=$if(%style%,%_folderpath%'..\\'%albumartist% - ($left(%year%,4)) %album% $if($geql($strstr($meta(style),Orchestral),1),($regexp($meta_sep(ensemble,/),'^[\\s\\S]*?orchestra:(.+)(?:/[\\s\\S]*|$)',$1))$regexp($replace( '['$if2(%releasecountry% \u00b7,$if2(%country% \u00b7,%musicbrainz_albumreleasecountry% \u00b7))$if2( %publisher%, %label%)$if2( %catalog% \u00b7, $regexp($meta_sep(catalognumber,~),('['\\s\\S']'*?~).+~('['\\s\\S']'*?),$1) \u00b7)$if2( %media%, %mediatype%)']','[]',,'  ',' '),\\s$,),)\\%_filename%,%_filename%)
+F=_FILENAME
+
+[#2]
+T=5
+1=$if(%style%,M:\\Classical\\$if(%period%,$if($neql(%period%,Twentieth Century),%period% era,Twentieth Century),Unknown)\\$if(%subperiod%,%subperiod%\\,)$if($eql(%composer%,'['Anonymous']'),Anonymous,$regexp(%composer%,(.+)\\s('['\\w-']'+),$2',' $1) (%lifespan%))\\$if($and($geql($strstr($meta(style),Overture),1),$geql($strstr($meta(style),Single Piece),1)),Overture,$replace($regexp($meta(style),^'['\\s\\S']'*?(Ballet|Single Piece|Opera|Sonata|Piano|Clarinet|Organ|Harpsichord|Fantasia|Symphonic Cycle|Oratorio|Requiem Mass|Requiem|Folk Song|Fugue|March|Cantana|Incidental|Commemorative|Prelude|Song|Lied|Symphonic Poem|Ballad|Orchestral Suite|Divertimento|Prelude and Fugue|Concertino|Sinfonia concertante|Sacred Cantana|Aria|Concertino|Impromptu|Choral Anthem|Waltz|Concerto|Rhapsody|Mass|Play|Chamber|Quartet|Hymnal|Symphony|Suite)'['\\s\\S']'*?$,$1),Orchestral',' ,))\\$if($eql($left(%_directory%,2),CD),%_parent_directory%\\,)%_directory%\\%_filename%,%_filename%)
+F=_FILENAME
+
+[#3]
+T=2
+F=DIRECTORY
+1= ()
+2=
+3=0|0
+

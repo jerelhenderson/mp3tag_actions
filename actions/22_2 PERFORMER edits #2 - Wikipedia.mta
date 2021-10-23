@@ -1,0 +1,47 @@
+﻿[#0]
+T=4
+F=PERFORMER
+1=\\.|\\[\\d+\\]
+2=
+3=0
+
+[#1]
+T=4
+F=PERFORMER
+1=\\r
+2=/
+3=0
+
+[#2]
+T=16
+F=PERFORMER
+1=/
+
+[#3]
+T=2
+F=PERFORMER
+1=, Jr
+2=comma Jr
+3=0|0
+
+[#4]
+T=4
+F=PERFORMER
+1=(.+)\\s+(?:\u2013|-|\u2014)\\s+(.+)
+2=$1 ($2)
+3=0
+
+[#5]
+T=4
+F=PERFORMER
+1=\\s+
+2= 
+3=0
+
+[#6]
+T=2
+F=PERFORMER
+1=comma Jr
+2=, Jr
+3=0|0
+

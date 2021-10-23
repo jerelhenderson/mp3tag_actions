@@ -1,0 +1,37 @@
+﻿[#0]
+T=2
+F=STYLE
+1=Anime
+2=\u30a2\u30cb\u30e1
+3=0|0
+
+[#1]
+T=5
+1=$if($and($eql($strstr($meta(style),Soundtrack),0),$geql($strstr($meta(style),Video Game),1)),$meta_sep(style,\\\\)\\\\Soundtrack,$meta_sep(style,\\\\))
+F=style
+
+[#2]
+T=5
+1=$if($and($eql($strstr($meta(style),Soundtrack),0),$geql($strstr($meta(style),Film Score),1)),$meta_sep(style,\\\\)\\\\Soundtrack,$meta_sep(style,\\\\))
+F=style
+
+[#3]
+T=5
+1=$if($and($eql($strstr($meta(style),Soundtrack),0),$geql($strstr($meta(style),TV Score),1)),$meta_sep(style,\\\\)\\\\Soundtrack,$meta_sep(style,\\\\))
+F=style
+
+[#4]
+T=5
+1=$if($and($eql($strstr($meta(style),Soundtrack),0),$geql($strstr($meta(style),\u30a2\u30cb\u30e1),1)),$meta_sep(style,\\\\)\\\\Soundtrack,$meta_sep(style,\\\\))
+F=STYLE
+
+[#5]
+T=5
+1=$if($and($eql($strstr($meta(style),Disney),0),$or($geql($strstr($meta(contentgroup),Disney),1),$geql($strstr($meta(grouping),Disney),1))),$meta_sep(style,\\\\)\\\\Disney,$meta_sep(style,\\\\))
+F=style
+
+[#6]
+T=5
+1=$if($geql($strstr($meta(%releasetype%),soundtrack),1),$meta_sep(style,\\\\)\\\\Soundtrack,$meta_sep(style,\\\\))
+F=STYLE
+

@@ -1,0 +1,14 @@
+﻿[#0]
+T=5
+1=$if2(%num_roman%,%movement%)
+F=MOVEMENT
+
+[#1]
+T=9
+F=NUM_ROMAN
+
+[#2]
+T=5
+1=$if(%movement%,1,)
+F=SHOWMOVEMENT
+

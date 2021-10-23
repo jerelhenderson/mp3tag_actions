@@ -1,0 +1,9 @@
+﻿[#0]
+T=5
+1=$if(%performer%,$meta_sep(guest artist,\\\\)\\\\$meta_sep(performer,\\\\),$meta_sep(guest artist,\\\\))
+F=PERFORMER
+
+[#1]
+T=9
+F=GUEST ARTIST
+

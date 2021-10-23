@@ -1,0 +1,15 @@
+﻿[#0]
+T=5
+1=%albumartist%
+F=ARTISTSORT
+
+[#1]
+T=5
+1=%blank%
+F=ALBUMARTIST
+
+[#2]
+T=5
+1=1
+F=COMPILATION
+

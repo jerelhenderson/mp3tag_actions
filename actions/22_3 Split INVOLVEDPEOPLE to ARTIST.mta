@@ -1,0 +1,10 @@
+﻿[#0]
+T=5
+1=$regexp(%involvedpeople%,vocals:(.+?);,$1)
+F=ARTIST
+
+[#1]
+T=5
+1=$regexp(%involvedpeople%,^vocals:(.+?);,)
+F=INVOLVEDPEOPLE
+
