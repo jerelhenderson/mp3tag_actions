@@ -197,33 +197,26 @@ F=TITLE
 
 [#28]
 T=2
-F=_TAG
-1= / 
-2=/
-3=0|0
-
-[#29]
-T=2
 F=PERFORMER
 1=The Phenix
 2=Phenix
 3=0|0
 
-[#30]
+[#29]
 T=2
 F=INVOLVEDPEOPLE
 1=The Phenix
 2=Phenix
 3=0|0
 
-[#31]
+[#30]
 T=2
 F=PERFORMER
 1=Horns$
 2=Horns (horns)
 3=0|0
 
-[#32]
+[#31]
 T=5
 1=$if($or($eql($lower(%artist%),kool and the gang),$eql($lower(%artist%),kool & the gang),$eql($lower(%artist%),diana ross & the supremes)),$replace(%artist%,&,AMPERSAND,and,CONJUNCTION),$meta_sep(artist,\\\\))
 F=ARTIST
