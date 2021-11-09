@@ -221,3 +221,17 @@ T=5
 1=$if($or($eql($lower(%artist%),kool and the gang),$eql($lower(%artist%),kool & the gang),$eql($lower(%artist%),diana ross & the supremes)),$replace(%artist%,&,AMPERSAND,and,CONJUNCTION),$meta_sep(artist,\\\\))
 F=ARTIST
 
+[#32]
+T=2
+F=_ALL
+1=\u2010
+2=-
+3=0|0
+
+[#33]
+T=2
+F=_ALL
+1=\u2026
+2=...
+3=0|0
+
