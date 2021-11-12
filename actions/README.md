@@ -63,9 +63,9 @@ Additional naming and grammatical style corrections not included in Grammartron
 </ul>
 
 ### Zero Width Whitespace LANGUAGE
-Replace LANGUAGE with zero width whitespace, unless GENRE=Classical
+Remove LANGUAGE, unless STYLE is "Classical" and remove superfluous COMMENT tags
 <ul style="list-style: none;">
-<li>11 Zero Space - Language.mta</li>
+<li>11 Remove LANGUAGE-COMMENT.mta</li>
 </ul>
 
 ### Duets
@@ -160,10 +160,10 @@ Append "Soundtrack" to STYLE, if missing and album is a soundtrack
 </ul>
 
 ### Format and move classical tracks
-Move `Genre==Classical` tracks from staging folder to music library</br>
+Move `STYLE==Classical` tracks from staging folder to music library</br>
 
 Directory path roughly follows the format below...</br>
-`Drive Letter :\ Classical \  PERIOD \ SUBPERIOD \ <Sort Composer> (LIFESPAN) \ <STYLE> \ <Album Artist> - $If(<Original Year>=<Year (yyyy)>,(<Year (yyyy)>),(<Original Year>) (<Year (yyyy)>)) - <Album> $If($IsMatch(<ENSEMBLE>,"(orchestra|choir):"),(<ENSEMBLE>),) [RELEASECOUNTRY · PUBLISHER CATALOGNUMBER · SOURCE MEDIUM]`<br/>
+`Drive Letter :\ Classical \  PERIOD \ SUBPERIOD \ <Sort Composer> (LIFESPAN) \ <Genre> \ <Album Artist> - $If(<Original Year>=<Year (yyyy)>,(<Year (yyyy)>),(<Original Year>) (<Year (yyyy)>)) - <Album> $If($IsMatch(<ENSEMBLE>,"(orchestra|choir):"),(<ENSEMBLE>),) [RELEASECOUNTRY · PUBLISHER CATALOGNUMBER · SOURCE MEDIUM]`<br/>
 Presenting results such as...<br/>
 `M:\Classical\Classical era\Middle\Bologne, Joseph (1745-1799)\Concerto\Rachel Barton Pine (violin) - (1997) Violin Concertos by Black Composers of the 18th and 19th Centuries (Encore Chamber Orchestra) [US · Cedille CDR 90000 035 · CD]`<br/>
 <ul style="list-style: none;">
