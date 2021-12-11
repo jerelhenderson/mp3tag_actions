@@ -10,12 +10,12 @@ F=YEAR
 
 [#2]
 T=5
-1=$if($or($eql($strstr($meta(style),Soundtrack),0),$eql(%compilation%,1)),$validate($regexp(%track%,/.+,) - $if($eql(%genre%,Classical),$if($geql($strstr($meta(genre),Virtuoso),1),$if(%temp%,$regexp($meta(performer),(?:'['\\s\\S']'*','\\s|^)(.+$regexp(%temp%,^(.+)/'['\\s\\S']'*?$,$1)\\')')','\\s,$1',' ),$regexp($meta(performer),(?:'['\\s\\S']'*','\\s|^)(.+\\s\\'('(?:\\w+\\s|\\b)$regexp($meta(genre),^'['\\s\\S']'*?Virtuoso\\s\\'('(.+)\\')''['\\s\\S']'*?$,$1)).+,$1)')')$if($and($eql($strstr($meta(performer),%conductor%),0),%conductor%),',' %conductor%,),$if2(%conductor%,%albumartist%)),%albumartist%) - $if($neql($left(%originaldate%,4),$left(%year%,4)),($left(%originaldate%,4)) ($left(%year%,4)),($left(%year%,4))) $replace(%album%,' - ',' ', / ,-,<,'[',>,']') - $if($eql(%genre%,Classical),(%composer%) ,)$replace(%title%,/,-,<,'[',>,']'),),%_filename%)
+1=$if($or($eql($strstr($meta(style),Soundtrack),0),$eql(%compilation%,1)),$validate($regexp(%track%,/.+,) - $if($eql(%genre%,Classical),$if($geql($strstr($meta(genre),Virtuoso),1),$if(%temp%,$regexp($meta(performer),(?:'['\\s\\S']'*','\\s|^)(.+$regexp(%temp%,^(.+)/'['\\s\\S']'*?$,$1)\\')')','\\s,$1',' ),$regexp($meta(performer),(?:'['\\s\\S']'*','\\s|^)(.+\\s\\'('(?:\\w+\\s|\\b)$regexp($meta(genre),^'['\\s\\S']'*?Virtuoso\\s\\'('(.+)\\')''['\\s\\S']'*?$,$1)).+,$1)')')$if($and($eql($strstr($meta(performer),%conductor%),0),%conductor%),',' %conductor%,),$if2(%conductor%,%albumartist%)),%albumartist%) - $if($neql($left(%originaldate%,4),$left(%year%,4)),($left(%originaldate%,4)) ($left(%year%,4)),($left(%year%,4))) $replace(%album%,' - ',' ', / ,-,<,'[',>,']') - $if($eql(%genre%,Classical),(%composer%) ,)$replace(%title%,/,-,<,'[',>,']')$if(%subtitle%, %subtitle%,),),%_filename%)
 F=_FILENAME
 
 [#3]
 T=5
-1=$if($or($geql($strstr($meta(style),Soundtrack),1),$eql(%compilation%,1)),$validate($if($geql($strstr(%mediatype%,Vinyl),1),%track%,$regexp($num(%track%,2),/(.+),)) - $if($neql($left(%originaldate%,4),$left(%year%,4)),($left(%originaldate%,4)) ,)($left(%year%,4)) $replace(%album%,' - ',' ',/,-,<,'[',>,']') - $replace(%title%,/,-,<,'[',>,']'),),%_filename%)
+1=$if($or($geql($strstr($meta(style),Soundtrack),1),$eql(%compilation%,1)),$validate($if($geql($strstr(%mediatype%,Vinyl),1),%track%,$regexp($num(%track%,2),/(.+),)) - $if($neql($left(%originaldate%,4),$left(%year%,4)),($left(%originaldate%,4)) ,)($left(%year%,4)) $replace(%album%,' - ',' ',/,-,<,'[',>,']') - $replace(%title%,/,-,<,'[',>,']'),)$if(%subtitle%, %subtitle%,),%_filename%)
 F=_FILENAME
 
 [#4]
