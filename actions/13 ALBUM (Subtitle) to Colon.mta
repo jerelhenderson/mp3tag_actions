@@ -1,28 +1,11 @@
 ﻿[#0]
 T=4
 F=ALBUM
-1=\\s(?:\\[|\\()
-2=: 
+1=\\s(?:\\[|\\()(.+)(?:\\)|\\])
+2=: $1
 3=0
 
 [#1]
-T=4
-F=ALBUM
-1=(?:\\)\\])$
-2=
-3=0
-
-[#2]
-T=5
-1=$if2(%setsubtitle%,$if($geql($strstr($meta(style),Soundtrack),1),$regexp(%album%,'^[\\s\\S]*?(:\\s(Original|Special|Music [F|f]rom).+?)$',$1),))
-F=SETSUBTITLE
-
-[#3]
-T=5
-1=$if($eql(%setsubtitle%,%album%),,%setsubtitle%)
-F=SETSUBTITLE
-
-[#4]
 T=4
 F=ALBUMSORT
 1=:\\s(?:Original|Music from the|Special).+

@@ -30,7 +30,7 @@ F=RELEASESTATUS
 
 [#6]
 T=5
-1=$if2(%releasetype%,$if($eql(%_extension%,flac),%musicbrainz_albumtype%,))
+1=$if2($meta_sep(releasetype,\\\\),$if($eql(%_extension%,flac),%musicbrainz_albumtype%,))
 F=RELEASETYPE
 
 [#7]
@@ -45,7 +45,7 @@ F=MUSICBRAINZ_ALBUMSTATUS
 
 [#9]
 T=5
-1=$if($eql(%musicbrainz_albumtype%,%releasetype%),,%musicbrainz_albumtype%)
+1=$if($eql($meta_sep(musicbrainz_albumtype,\\\\),$meta_sep(releasetype,\\\\)),,%musicbrainz_albumtype%)
 F=MUSICBRAINZ_ALBUMTYPE
 
 [#10]

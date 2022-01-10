@@ -5,7 +5,7 @@ F=ARTISTSORT
 
 [#1]
 T=5
-1=%album%
+1=$replace(%album%,The Legacy Collection: ,)
 F=MOVIEORALBUM
 
 [#2]

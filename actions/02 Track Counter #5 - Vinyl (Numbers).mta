@@ -3,3 +3,8 @@ T=5
 1=$if2(%setsubtitle%,$if($eql($left(%discnumber%,2),01),Side 1,$if($eql($left(%discnumber%,2),02),Side 2,$if($eql($left(%discnumber%,2),03),Side 3,Side 4))))
 F=SETSUBTITLE
 
+[#1]
+T=5
+1=$if2(%setsubtitle%,$regexp(%discnumber%,'0(\\d+)/\\d+',Side $1)
+F=SETSUBTITLE
+

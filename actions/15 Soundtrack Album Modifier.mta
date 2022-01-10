@@ -10,6 +10,6 @@ F=GROUPING
 
 [#2]
 T=5
-1=$if($geql($strstr($meta(genre),Classical),1),$if2(%conductor%,)\\\\%composer%,)
+1=$if($geql($strstr($meta(style),Classical),1),$if2(%conductor%,)\\\\%composer%,)
 F=ARTISTSORT
 

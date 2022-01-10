@@ -1,6 +1,6 @@
 ﻿[#0]
 T=5
-1=$if($eql(%genre%,Classical),$if2(%conductor%,%albumartist%)\\\\%composer%,%albumartist%)
+1=$if($eql(%style%,Classical),$if2(%conductor%,%albumartist%)\\\\%composer%,%albumartist%)
 F=ARTISTSORT
 
 [#1]

@@ -26,7 +26,7 @@ F=COMPOSER
 
 [#4]
 T=5
-1=$if2(%display composer%,%composer%)
+1=$if2($meta_sep(display composer,\\\\),$meta_sep(composer,\\\\))
 F=DISPLAY COMPOSER
 
 [#5]

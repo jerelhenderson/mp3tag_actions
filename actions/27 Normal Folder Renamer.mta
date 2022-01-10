@@ -1,31 +1,38 @@
 ﻿[#0]
+T=2
+F=_ALL
+1=, LLC
+2=
+3=0|0
+
+[#1]
 T=5
 1=$if($eql(%_parent_directory%,Music),,$replace(%_folderpath%,\\%_directory%\\,))
 F=PREVIOUSDIR
 
-[#1]
+[#2]
 T=16
 F=PUBLISHER
 1=;
 
-[#2]
+[#3]
 T=5
-1=$if($eql($strstr(%_folderpath%,\\Music),0),$regexp(%_folderpath%,(.+)%artistsort%\\\\'['\\s\\S']'*?$,$1),L:\\.READY TO MOVE\\)$replace($if($or($geql($strstr(%albumartist%,&),1),$geql($strstr(%albumartist%,and),1),$geql($strstr(%albumartist%, e ),1),$geql($strstr(%albumartist%, \u00b7 ),1)),Collaboration\\%albumartist%,$if($eql(%genre%,Traditional),Traditional\\%grouping%,$if($isdigit($left(%artistsort%,1)),#,$if($and($geql($ord($left(%artistsort%,1)),$ord(\u4e00)),$leql($ord($left(%artistsort%,1)),$ord(\u9fa5))),\u65e5\u672c\u306e\u65b9,$upper($left($regexp(%artistsort%,'^(DJ|The|Tha|Lil|\\.|\\*|A)\\s',),1)))))\\%artistsort%)\\$if($or($geql($strstr(%_parent_directory%,Mixtape),1),$geql($strstr($meta(musicbrainz_albumtype),mixtape),1),$geql($strstr($meta(releasetype),mixtape),1)),Mixtape\\,)$if($or($geql($strstr(%_parent_directory%,Box),1),$geql($strstr($meta(musicbrainz_albumtype),box set),1),$geql($strstr($meta(releasetype),box set),1)),Box Set\\,)$if($or($geql($strstr(%_parent_directory%,Posthumous\\),1),$geql($strstr($meta(musicbrainz_albumtype),posthumous),1),$geql($strstr($meta(releasetype),posthumous),1)),Posthumous\\,)$if($or($geql($strstr(%_parent_directory%,Bootleg\\),1),$geql($strstr($meta(musicbrainz_albumtype),bootleg),1),$geql($strstr($meta(releasestatus),bootleg),1)),Bootleg\\,)$if($or($geql($strstr(%_parent_directory%,Live),1),$geql($strstr($meta(musicbrainz_albumtype),live),1),$geql($strstr($meta(releasetype),live),1)),Live\\,)$if($or($geql($strstr(%_parent_directory%,Holiday),1),$geql($strstr($meta(musicbrainz_albumtype),Holiday),1),$geql($strstr($meta(releasetype),holiday),1)),Holiday\\,)$if($or($geql($strstr(%_parent_directory%,Compilation),1),$geql($strstr(%musicbrainz_albumtype%,compilation),1),$geql($strstr($meta(releasetype),compilation),1)),Compilation\\,)$if($or($geql($strstr(%_parent_directory%,ep\\\\),1),$geql($strstr($meta(musicbrainz_albumtype),ep),1),$geql($strstr($meta(releasetype),ep),1)),EP\\,)$if($or($geql($strstr(%_parent_directory%,Collaboration\\\\),1),$geql($strstr($meta(musicbrainz_albumtype),collaborative),1),$geql($strstr($meta(releasetype),collaborative),1)),Collaboration\\,)$if($or($geql($strstr(%_parent_directory%,demo\\\\),1),$geql($strstr($meta(musicbrainz_albumtype),demo),1),$geql($strstr($meta(releasetype),demo),1)),Demo\\,$if($or($geql($strstr(%_parent_directory%,Studio),1),$geql($strstr(%_parent_directory%,Albums),1),$eql($meta(musicbrainz_albumtype),album),$eql($meta(releasetype),album)),Studio\\,))%albumartist%,'+-',&,'\u003d-',and) - $if($and($neql(%keywords%,box set),$neql($left(%originaldate%,4),$left(%year%,4))),($left(%originaldate%,4)) ($left(%year%,4)),($left(%year%,4))) $replace(%album%,' - ',' ', / ,-,<,'[',>,']')$regexp($regexp($replace( '['$if2(%releasecountry% \u00b7,$if2(%country% \u00b7,%musicbrainz_albumreleasecountry% \u00b7))$if2( %publisher%, %label%)$if2( %catalog% \u00b7, $regexp($meta_sep(catalognumber,~),('['\\s\\S']'*?~).+~('['\\s\\S']'*?),$1) \u00b7)$if2( %media%, %mediatype%)']','[]',,'  ',' '),\\s$,),(?:\\s|\\b)\\'('.+\\')',)
+1=$if($eql($strstr(%_folderpath%,\\Music),0),$regexp(%_folderpath%,(.+)%artistsort%\\\\'['\\s\\S']'*?$,$1),L:\\.READY TO MOVE\\)$replace($if($eql($regexp(%albumartist%,^[\\s\\S]*?(&|\\band\\b|\\be\\b|\u00b7|\uff0f)[\\s\\S]*?$,$1),),Collaboration\\%albumartist%,$if($eql(%genre%,Traditional),Traditional\\%grouping%,$if($isdigit($left(%artistsort%,1)),#,$if($and($geql($ord($left(%artistsort%,1)),$ord(\u4e00)),$leql($ord($left(%artistsort%,1)),$ord(\u9fa5))),$if($neql(%releasecountry%,CN),\u65e5\u672c\u306e\u65b9,\u534e\u4eba),$upper($left($regexp(%artistsort%,'^(DJ|The|Tha|Lil|\\.|\\*|A)\\s',),1)))))\\%artistsort%)\\$if($or($geql($strstr(%_parent_directory%,Mixtape),1),$geql($strstr($meta(musicbrainz_albumtype),mixtape),1),$geql($strstr($meta(releasetype),mixtape),1)),Mixtape\\,)$if($or($geql($strstr(%_parent_directory%,Box),1),$geql($strstr($meta(musicbrainz_albumtype),box set),1),$geql($strstr($meta(releasetype),box set),1)),Box Set\\,)$if($or($geql($strstr(%_parent_directory%,Remix),1),$geql($strstr(%musicbrainz_albumtype%,remix),1),$geql($strstr($meta(releasetype),remix),1)),Remix\\,)$if($or($geql($strstr(%_parent_directory%,Posthumous\\),1),$geql($strstr($meta(musicbrainz_albumtype),posthumous),1),$geql($strstr($meta(releasetype),posthumous),1)),Posthumous\\,)$if($or($geql($strstr(%_parent_directory%,Bootleg\\),1),$geql($strstr($meta(musicbrainz_albumtype),bootleg),1),$geql($strstr($meta(releasestatus),bootleg),1)),Bootleg\\,)$if($or($geql($strstr(%_parent_directory%,Live),1),$geql($strstr($meta(musicbrainz_albumtype),live),1),$geql($strstr($meta(releasetype),live),1)),Live\\,)$if($or($geql($strstr(%_parent_directory%,Holiday),1),$geql($strstr($meta(musicbrainz_albumtype),Holiday),1),$geql($strstr($meta(releasetype),holiday),1)),Holiday\\,)$if($or($geql($strstr(%_parent_directory%,Compilation),1),$geql($strstr(%musicbrainz_albumtype%,compilation),1),$geql($strstr($meta(releasetype),compilation),1)),Compilation\\,)$if($or($geql($strstr(%_parent_directory%,ep\\\\),1),$geql($strstr($meta(musicbrainz_albumtype),ep),1),$geql($strstr($meta(releasetype),ep),1)),EP\\,)$if($or($geql($strstr(%_parent_directory%,Collaboration\\\\),1),$geql($strstr($meta(musicbrainz_albumtype),collaborative),1),$geql($strstr($meta(releasetype),collaborative),1)),Collaboration\\,)$if($or($geql($strstr(%_parent_directory%,demo\\\\),1),$geql($strstr($meta(musicbrainz_albumtype),demo),1),$geql($strstr($meta(releasetype),demo),1)),Demo\\,$if($or($geql($strstr(%_parent_directory%,Studio),1),$geql($strstr(%_parent_directory%,Albums),1),$eql($meta(musicbrainz_albumtype),album),$eql($meta(releasetype),album)),Studio\\,))%albumartist%,'+-',&,'\u003d-',and) - $if($and($neql(%keywords%,box set),$neql($left(%originaldate%,4),$left(%year%,4))),($left(%originaldate%,4)) ($left(%year%,4)),($left(%year%,4))) $replace(%album%,' - ',' ', / ,-,<,'[',>,']')$regexp($regexp($replace( '['$if2(%releasecountry% \u00b7,$if2(%country% \u00b7,%musicbrainz_albumreleasecountry% \u00b7))$if2( %publisher%, %label%)$if2( %catalog% \u00b7, $regexp($meta_sep(catalognumber,~),('['\\s\\S']'*?~).+~('['\\s\\S']'*?),$1) \u00b7)$if2( %media%, %mediatype%)']','[]',,'  ',' '),\\s$,),(?:\\s|\\b)\\'('.+\\')',)
 F=_DIRECTORY
 
-[#3]
+[#4]
 T=5
 1=%_folderpath%'\\..\\'%_directory%\\$if(%discnumber%,\\CD $regexp(%discnumber%,(\\d+)/.+,$1),)\\%_filename%
 F=_FILENAME
 
-[#4]
+[#5]
 T=2
 F=_ALL
 1=+-
 2=&
 3=0|0
 
-[#5]
+[#6]
 T=2
 F=_ALL
 1=\u003d-

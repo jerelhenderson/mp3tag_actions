@@ -47,14 +47,14 @@ F=AUTHOR
 
 [#7]
 T=5
-1=$regexp(%involvedpeople%$meta_sep(arranger,;)$meta_sep(producer,;)$meta_sep(engineer,;)$meta_sep(mixer,;)$meta_sep(writer,;)$meta_sep(author,;),(;;)+,;)
+1=$regexp($meta_sep(involvedpeople,;);$meta_sep(arranger,;)$meta_sep(producer,;)$meta_sep(engineer,;)$meta_sep(mixer,;)$meta_sep(writer,;)$meta_sep(author,;),(;;)+,;)
 F=INVOLVEDPEOPLE
 
 [#8]
 T=4
 F=INVOLVEDPEOPLE
-1=;(\\w)
-2=; $1
+1=^;
+2=
 3=0
 
 [#9]

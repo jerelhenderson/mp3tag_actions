@@ -1,6 +1,6 @@
 ﻿[#0]
 T=5
-1=$if($or($eql(%genre%,Classical),$eql(%language%,\u200b)),%language%,)
+1=$if($eql($strstr($meta_sep(style,\\\\),Classical),0),,%language%)
 F=LANGUAGE
 
 [#1]
@@ -219,9 +219,16 @@ F=INVOLVEDPEOPLE
 3=0|0
 
 [#37]
-T=2
-F=_TAG
-1=mixtape/street
-2=mixtape
-3=0|0
+T=4
+F=COMMENT
+1=(?:ExactAudioCopy|EAC|Ripped|Track).+
+2=
+3=0
+
+[#38]
+T=4
+F=DESCRIPTION
+1=(?:ExactAudioCopy|EAC|Ripped|Track).+
+2=
+3=0
 

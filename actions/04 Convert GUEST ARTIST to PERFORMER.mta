@@ -1,6 +1,6 @@
 ﻿[#0]
 T=5
-1=$if(%performer%,$meta_sep(guest artist,\\\\)\\\\$meta_sep(performer,\\\\),$meta_sep(guest artist,\\\\))
+1=$meta_sep(guest artist,\\\\)\\\\$meta_sep(performer,\\\\)
 F=PERFORMER
 
 [#1]
