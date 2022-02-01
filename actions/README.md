@@ -39,7 +39,7 @@ Split featured artists in ARTIST or TITLE to GUEST ARTIST
 <li>05_1 ARTIST or PERFORMER to ALBUMARTIST.mta</li>
 	- copy ARTIST to ALBUMARTIST, unless specific requirements (for classical tracks) are met
 <li>05_2 ALBUMARTIST (and-or COMPOSER) to ARTISTSORT.mta</li>
-	- copy ALBUMARTIST to ARTISTSORT, and attach COMPOSER if GENRE=Classical
+	- copy ALBUMARTIST to ARTISTSORT, and attach COMPOSER if STYLE=Classical
 </ul>
 
 ### Miscellaneous naming corrections
@@ -51,11 +51,11 @@ Additional naming and grammatical style corrections not included in Grammartron
 ### Format ARTIST/COMPOSER and the like
 <ul style="list-style: none;">
 <li>07_1 Copy ARTIST to COMPOSER, create DISPLAY COMPOSER.mta</li>
-	- if ARTIST meets certain conditions, copy to COMPOSER, DISPLAY COMPOSER from COMPOSER, format (mostly GENRE=Classical)
+	- if ARTIST meets certain conditions, copy to COMPOSER, DISPLAY COMPOSER from COMPOSER, format (mostly if STYLE=Classical)
 <li>07_2 Create DISPLAY COMPOSER.mta</li>
-	- create DISPLAY COMPOSER, format for GENRE=Classical tracks
+	- create DISPLAY COMPOSER
 <li>08_1 Convert separators to ; and SPLIT #1 - ARTIST.mta</li>
-	- delimiters in ARTIST are converted to semi-colons, then split to a multi-tag
+	- delimiters in ARTIST are converted to semi-colons, then split into a multi-tag
 <li>08_2 Convert separators to ; and SPLIT #2 - COMPOSER LYRICIST.mta</li>
 	- delimiters in COMPOSER and LYRICIST are converted to semi-colons, then split to a multi-tag
 <li>09 Create DISPLAY ARTIST, format DISPLAY ARTIST.mta</li>
@@ -76,7 +76,7 @@ Replace 'and' with ampersand in DISPLAY ARTIST
 
 ### ALBUM Parentheses to Colon
 Per the MusicBrainz Style Guide, convert albums with subtitles inside parentheses to colons
-For example, "Star Wars (Original Soundtrack)" becomes "Star Wars: Original Soundtrack"
+For example, "Planet of the Apes (Original Sound Track)" becomes "Planet of the Apes: Original Sound Track"
 <ul style="list-style: none;">
 <li>13 ALBUM (Subtitle) to Colon.mta</li>
 </ul>
@@ -88,15 +88,19 @@ Copy ALBUMARTIST to ARTISTSORT, then set COMPILATION=1
 </ul>
 
 ### Soundtrack creation tags
+Create tags that designate an album as a soundtrack album, with the ability to sort albums part of a television or movie series
 <ul style="list-style: none;">
 <li>15 Add MOVIEORALBUM and ARTISTSORT.mta</li>
 <li>15 Soundtrack Album Modifier.mta</li>
 <li>15 Soundtrack Sorter.mta</li>
+  - Add ZWSP characters in front of ALBUMSORT to custom sort albums. For example, the Star Wars Prequel Trilogy comes after the Original Trilogy in real world chronology, but in-universe they occur before.
 </ul>
 
-### Classical manipulation tags
+### Tags for cataloging pre-modern popular music
+If STYLE=Classical, applicable and useful information is extracted from a text file and from the TITLE into separate tags
 <ul style="list-style: none;"> 
 <li>17 Period and Subperiod.mta</li>
+  - Pulls a list of composers and their lifespans from a text file, isolates the relevant composer for the track and sets a corresponding PERIOD and SUBPERIOD
 <li>18 Find the INITIALKEY and PROPERKEY.mta</li>
 <li>18 Find the TEMPI.mta</li>
 <li>19 Find the MOVEMENT.mta</li>
@@ -104,6 +108,7 @@ Copy ALBUMARTIST to ARTISTSORT, then set COMPILATION=1
 </ul>
 
 ### Arabic<->Roman Numerals Conversion
+Convert Arabic numerals to Roman numerals and vice versa
 <ul style="list-style: none;">
 <li>20 Arabic Number to Roman Rumeral.mta</li>
 <li>20 Convert NUM_ARAB to MOVEMENT.mta</li>
@@ -112,6 +117,7 @@ Copy ALBUMARTIST to ARTISTSORT, then set COMPILATION=1
 </ul>
 
 ### Create and format various year and date tags
+Format YEAR tag based on file type, as well as setting the ORIGINAL YEAR and ORIGINALDATE tags based on album type
 <ul style="list-style: none;">
 <li>21 Split YEAR.mta</li>
 </ul>
@@ -130,11 +136,13 @@ Copy ALBUMARTIST to ARTISTSORT, then set COMPILATION=1
 </ul>
 
 ### Disc Folder Creator
+Move tracks to separate disc folders if they're not already separated
 <ul style="list-style: none;">
 <li>23 Disc Maker.mta</li>
 </ul>
 
 ### Clean Up Tags
+Miscellaneous cleanup of unneeded and unnecessary tags, remove duplicated information in multi-tags and check for RELEASECOUNTRY · PUBLISHER CATALOGNUMBER · MEDIA TYPE/SOURCE MEDIUM before formatting
 <ul style="list-style: none;">
 <li>24_1 Picard Fixes.mta</li>
 <li>24_2 Fix Duplicates, Split Combined Tags.mta</li>
